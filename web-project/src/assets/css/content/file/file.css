@@ -1,0 +1,62 @@
+.file-container {
+  margin-top: 2rem;
+  color: rgba(245, 246, 250, 0.7);
+  padding-left: 5%;
+  position: relative;
+}
+.file-container::before {
+  top: 30px;
+  left: 5%;
+  padding-left: 30px;
+  position: absolute;
+  content: '';
+  border-right: solid 2px #dcdde1;
+  height: 100%;
+}
+.file-container .fold {
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+.file-container img {
+  padding-top: 0.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  cursor: pointer;
+}
+.file-container .file-nav {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3rem;
+}
+.file-container .file-nav div {
+  position: relative;
+}
+.file-container .file-nav div img {
+  margin-right: 5px;
+  float: right;
+}
+.file-container .file-name {
+  margin: 0.2rem 3rem 0.2rem 3rem;
+  border-bottom: 1px solid rgba(245, 246, 250, 0.3);
+  box-sizing: border-box;
+  display: flex;
+}
+.file-container .file-name:hover {
+  border-bottom: #4cd137 solid 1px;
+}
+.file-container .file-name span {
+  margin-right: 5px;
+  display: block;
+}
+.file-container .file-name span:first-child {
+  font-size: 1.1rem;
+  position: relative;
+  top: 7px;
+  overflow: scroll;
+  text-indent: 0.5rem;
+  width: 90%;
+}
+/*# sourceMappingURL=file.css.map */

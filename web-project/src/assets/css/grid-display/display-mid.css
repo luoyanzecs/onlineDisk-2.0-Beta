@@ -1,0 +1,41 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+.container .col-md-1 {
+  grid-column: span 1;
+}
+.container .col-md-2 {
+  grid-column: span 2;
+}
+.container .col-md-3 {
+  grid-column: span 3;
+}
+.container .col-md-4 {
+  grid-column: span 4;
+}
+.container .col-md-5 {
+  grid-column: span 5;
+}
+.container .col-md-6 {
+  grid-column: span 6;
+}
+.container .col-md-7 {
+  grid-column: span 7;
+}
+.container .col-md-8 {
+  grid-column: span 8;
+}
+.container .col-md-9 {
+  grid-column: span 9;
+}
+.container .col-md-10 {
+  grid-column: span 10;
+}
+.container .col-md-11 {
+  grid-column: span 11;
+}
+.container .col-md-12 {
+  grid-column: span 12;
+}
+/*# sourceMappingURL=display-mid.css.map */

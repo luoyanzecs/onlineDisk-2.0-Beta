@@ -1,0 +1,60 @@
+.logo-home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+  transition: 2s;
+  transform: perspective(900px);
+}
+.logo-home article {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  transition: 2s;
+}
+.logo-home article span:last-child {
+  color: #4cd137;
+}
+.logo-home > div {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border: 2px solid #00a8ff;
+  box-sizing: border-box;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.4;
+}
+.logo-home > div:nth-child(2) {
+  border-right: none;
+  border-left: none;
+  transform: translateX(80px) rotateY(90deg);
+}
+.logo-home > div:nth-child(3) {
+  transform: translateZ(-80px);
+}
+.logo-home > div:nth-child(4) {
+  transform: translateZ(80px);
+}
+.logo-home > div:nth-child(5) {
+  border-right: none;
+  border-left: none;
+  transform: translateX(-80px) rotateY(90deg);
+}
+.logo-home > div:nth-child(6) {
+  border: none;
+  transform-origin: bottom;
+  transform: translateZ(-80px) rotateX(-90deg);
+}
+.logo-home > div:nth-child(7) {
+  border: none;
+  transform-origin: top;
+  transform: translateZ(-80px) rotateX(90deg);
+}
+/*# sourceMappingURL=home-logo.css.map */

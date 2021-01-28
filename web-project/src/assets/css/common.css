@@ -1,0 +1,51 @@
+@import "grid-display/display-small.css" only screen and (max-width: 768px);
+@import "grid-display/display-mid.css" only screen and (min-width: 768px);
+@import "grid-display/display-large.css" only screen and (min-width: 960px);
+
+:root {
+    font-family: Helvetica, serif;
+    font-size: 15px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #353b48;
+}
+
+.blank {
+    margin-bottom: 70px;
+}
+
+.blank-small {
+    margin-bottom: 30px;
+}
+
+ul li {
+    list-style: none;
+    display: block;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+a {
+    color: #f5f6fa;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+input {
+    border: rgba(0, 0, 0, 0) 2px solid;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: solid 1px #4cd137;
+    text-align: center;
+    color: #dcdde1;
+}
+

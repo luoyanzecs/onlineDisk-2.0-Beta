@@ -1,0 +1,60 @@
+.tip-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .tip-content {
+    overflow: hidden;
+    span {
+      position: relative;
+      top: 0.5rem;
+      animation: forwards swift-up;
+      animation-delay: 0.5s;
+    }
+
+    .max {
+      line-height: 3.6rem;
+      letter-spacing: 1px;
+      font-size: 3rem;
+      color: #f5f6fa;
+
+    }
+    i {
+      font-style: normal;
+      position: relative;
+      top: 3rem;
+      animation: swift-up;
+      animation-duration: 0.7s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  div:nth-child(1){
+    span{
+      &:nth-child(1) i{
+        animation-delay: 0.1s;
+      }
+      &:nth-child(2) i{
+        animation-delay: 0.3s;
+      }
+    }
+  }
+
+  div:nth-child(2){
+    span {
+      &:nth-child(1) i{
+        animation-delay: 0.5s;
+      }
+      &:nth-child(2) i{
+        animation-delay: 0.7s;
+      }
+    }
+  }
+}
+
+@keyframes swift-up {
+  to {
+    top: 0;
+  }
+}

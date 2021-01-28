@@ -1,0 +1,10 @@
+.nav-logo {
+  text-decoration: none;
+  font-size: 3rem;
+  color: #f5f6fa;
+  font-weight: bold;
+}
+.nav-logo span:nth-child(4) {
+  transition: 2s;
+}
+/*# sourceMappingURL=logo.css.map */

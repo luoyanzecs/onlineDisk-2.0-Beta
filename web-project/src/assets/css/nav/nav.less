@@ -1,0 +1,53 @@
+header {
+  background-color: #192a56;
+  box-sizing: border-box;
+  padding-bottom: 0.2rem;
+  padding-top: 0.3rem;
+  border-bottom: #babbbf solid 2px;
+  //box-shadow: 0 2px 1px #dcdde1;
+  display: flex;
+  //align-items: center;
+  height: 62px;
+  transition: 1s;
+
+  top: 0;
+  position: sticky;
+  z-index: 2;
+
+  .nav {
+    overflow: hidden;
+    flex: 1;
+    color: #f5f6fa;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header{
+    padding-right: 3%;
+    padding-left: 3%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  header {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header {
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+}
+

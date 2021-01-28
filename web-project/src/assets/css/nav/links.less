@@ -1,0 +1,43 @@
+.collapse {
+  flex: 1;
+  .links{
+    display: flex;
+    float: right;
+    li {
+      margin: 10px;
+      box-sizing: border-box;
+      display: block;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    .nav {
+      flex-flow: wrap;
+      .collapse {
+        display: none;
+        flex-basis: 100%;
+        padding-top: 25px;
+        margin-top: 5px;
+        border-top: solid 2px #487eb0 ;
+        .links {
+          flex-direction: column;
+          li {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  header {
+    height: 62px !important;
+  }
+  .collapse {
+    display: block !important;
+  }
+}

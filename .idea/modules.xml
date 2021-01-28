@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/java-server/java-server.iml" filepath="$PROJECT_DIR$/java-server/java-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/onlineDisk 2.0 Beta.iml" filepath="$PROJECT_DIR$/.idea/onlineDisk 2.0 Beta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-project/web-project.iml" filepath="$PROJECT_DIR$/web-project/web-project.iml" />
+    </modules>
+  </component>
+</project>
