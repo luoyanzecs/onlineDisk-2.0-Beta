@@ -1,7 +1,7 @@
 <template>
   <div class="logo-parent">
-    <div class="logo-home">
-      <article id="logo-article">
+    <div class="logo-home" ref="logoHome">
+      <article ref="logoArticle">
         <span>d</span><span>i</span><span>s</span><span>k</span>
       </article>
       <div></div>
@@ -18,8 +18,8 @@
   export default {
     name: "HomeLogo",
     mounted() {
-      const article = document.querySelector('#logo-article');
-      const logoHome = document.querySelector('.logo-home');
+      const article = this.$refs.logoArticle;
+      const logoHome = this.$refs.logoHome;
       setInterval(function change(){
         logoHome.style.transform = "perspective(900px) rotateY(180deg) rotateX(180deg)";
         article.style.transform ="perspective(900px) rotateY(180deg) rotateX(180deg)";

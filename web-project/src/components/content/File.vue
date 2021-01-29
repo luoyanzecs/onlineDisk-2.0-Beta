@@ -4,20 +4,15 @@
       <h1>Please login</h1>
     </div>
     <div v-else>
-      <div class="file-nav">
-        <div>
-          <img src="../../assets/icon/shangchuan.png"/>
-        </div>
-      </div>
+      <UpLoad></UpLoad>
       <div v-for="item in items">
         <div>
-          <!--<span @click="open(item.ser)" class="fold"><img src="../../assets/icon/zhankai.png"/></span>-->
-          <span @click="open(item.ser)" class="fold">{{item.ser}}</span>
-          <div :id="item.ser">
+          <span @click="unFold(item.ser)" class="fold">{{item.ser}}</span>
+          <div :ref="item.ser">
             <div v-for="file in item.files" class="file-name">
               <span>{{file}} </span>
-              <span><img src="../../assets/icon/xiazai.png" /></span>
-              <span><img src="../../assets/icon/shanchu.png" /></span>
+              <span @click="download(file)"><img src="../../assets/icon/xiazai.png"/></span>
+              <span @click="deleteFile(file)"><img src="../../assets/icon/shanchu.png"/></span>
               <span><img src="../../assets/icon/fenxiang.png"/></span>
             </div>
           </div>
@@ -29,24 +24,35 @@
 
 <script>
   import {request} from "@/api";
+  import UpLoad from "@/components/content/file/UpLoad";
 
   export default {
     name: "File",
     data() {
       return {
         items: [
-          {ser: 'A', files: ['filename1aaaaaaaaaaaaaaaa', 'filename2', '3']},
+          //test data
+          {ser: 'A', files: ['filename1------------------------------------', 'filename2', '3']},
           {ser: 'B', files: ['filename3', 'filename4']},
         ],
       }
     },
+    components: {
+      UpLoad
+    },
+    mounted() {
+      //asynchronous get RSA_PUBLIC_KEY_CLIENT,
+      // and create RSA_PUBLIC_KEY_SERVER, RSA_PRIVATE_KEY_SERVER with vuex actions,
+      // request()
+      this.getFilesList();
+    },
     methods: {
-      open(ser) {
-        let id = document.querySelector('#' + ser);
-        id.style.display =
-          (id.style.display == '') || (id.style.display == 'block') ? 'none' : 'block'
+      unFold(ser) {
+        let style = this.$refs[ser][0].style;
+        style.display = (style.display == '') || (style.display == 'block')
+          ? 'none' : 'block'
       },
-      getFiles() {
+      getFilesList() {
         //check use rsa or not {$store.state.isRsa}. encryption or not
         //if use rsa send {$store.state.RSA_PUBLIC_KEY_SERVER} to server for encryption
         request({
@@ -58,21 +64,12 @@
           //print err info
         })
       },
-      uploadFiles() {
-        //check use rsa or not {$store.state.isRsa}. encryption or not
-        //use {$store.state.RSA_PUBLIC_KEY_CLIENT} to encrypt,
-      },
-      getRsaPublicKeyClient() {
+      download(filename) {
 
       },
-      sendRsaPublicKeyServer() {
+      deleteFile(filename) {
 
-      }
-    },
-    mounted() {
-      //asynchronous get RSA_PUBLIC_KEY_CLIENT,
-      // and create RSA_PUBLIC_KEY_SERVER, RSA_PRIVATE_KEY_SERVER with vuex actions,
-      request()
+      },
     }
   }
 </script>

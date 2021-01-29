@@ -1,17 +1,15 @@
 .file-container {
   margin-top: 2rem;
   color: rgba(245, 246, 250, 0.7);
-  //font-size: 1.2rem;
-  padding-left: 5%;
+  margin-left: 3%;
   position: relative;
 
   &::before {
     top: 30px;
-    left: 5%;
-    padding-left: 30px;
+    left: 1.5rem;
     position: absolute;
     content: '';
-    border-right: solid 2px rgba(220, 221, 225,1.0);
+    border-right: dashed 2px rgba(220, 221, 225,1.0);
     height: 100%;
   }
 
@@ -29,26 +27,14 @@
     height: 1.3rem;
     cursor: pointer;
   }
-  .file-nav {
-    display: flex;
-    flex-direction: column;
-    margin-right: 3rem;
-    div {
-      position: relative;
-      img {
-        margin-right: 5px;
-        float: right;
-      }
-    }
-  }
+
   .file-name {
-    margin: 0.2rem 3rem 0.2rem 3rem;
+    margin: 0.2rem 2rem 0.2rem 2rem;
     border-bottom: 1px solid rgba(245, 246, 250, 0.3);
     box-sizing: border-box;
     display: flex;
 
     &:hover {
-      //background-color: rgba(39, 60, 117, 0.8);
       border-bottom: rgba(76, 209, 55,1.0) solid 1px;
     }
 
@@ -57,12 +43,11 @@
       display: block;
     }
     span:first-child {
+      white-space: nowrap;
       font-size: 1.1rem;
       position: relative;
-      top: 7px;
-      //overflow: hidden;
-      overflow: scroll;
-      //text-overflow: ellipsis;
+      top: 6px;
+      overflow: hidden;
       text-indent: 0.5rem;
       width: 90%;
     }

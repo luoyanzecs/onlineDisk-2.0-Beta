@@ -1,16 +1,15 @@
 .file-container {
   margin-top: 2rem;
   color: rgba(245, 246, 250, 0.7);
-  padding-left: 5%;
+  margin-left: 3%;
   position: relative;
 }
 .file-container::before {
   top: 30px;
-  left: 5%;
-  padding-left: 30px;
+  left: 1.5rem;
   position: absolute;
   content: '';
-  border-right: solid 2px #dcdde1;
+  border-right: dashed 2px #dcdde1;
   height: 100%;
 }
 .file-container .fold {
@@ -26,20 +25,8 @@
   height: 1.3rem;
   cursor: pointer;
 }
-.file-container .file-nav {
-  display: flex;
-  flex-direction: column;
-  margin-right: 3rem;
-}
-.file-container .file-nav div {
-  position: relative;
-}
-.file-container .file-nav div img {
-  margin-right: 5px;
-  float: right;
-}
 .file-container .file-name {
-  margin: 0.2rem 3rem 0.2rem 3rem;
+  margin: 0.2rem 2rem 0.2rem 2rem;
   border-bottom: 1px solid rgba(245, 246, 250, 0.3);
   box-sizing: border-box;
   display: flex;
@@ -52,10 +39,11 @@
   display: block;
 }
 .file-container .file-name span:first-child {
+  white-space: nowrap;
   font-size: 1.1rem;
   position: relative;
-  top: 7px;
-  overflow: scroll;
+  top: 6px;
+  overflow: hidden;
   text-indent: 0.5rem;
   width: 90%;
 }

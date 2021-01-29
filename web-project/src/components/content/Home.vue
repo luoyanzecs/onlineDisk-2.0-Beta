@@ -37,7 +37,6 @@
   .sign-layout {
     display: flex;
     flex-direction: row;
-    /*height: 225px;*/
   }
 
   .home-layout {

@@ -1,5 +1,5 @@
 <template>
-  <div class="sign-container" id="signUp">
+  <div class="sign-container" id="signUp" ref="signUp">
     <img @click="zoom" :src="imgAddr" />
     <div class="sign-slogan">
       <span @click="zoom">SIGN UP</span>
