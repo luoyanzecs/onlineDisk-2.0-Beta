@@ -12,7 +12,7 @@
             <div v-for="file in item.files" class="file-name">
               <span>{{file}} </span>
               <span @click="download(file)"><img src="../../assets/icon/xiazai.png"/></span>
-              <span @click="deleteFile(file)"><img src="../../assets/icon/shanchu.png"/></span>
+              <span @click="deleteFile(item.ser, file)"><img src="../../assets/icon/shanchu.png"/></span>
               <span><img src="../../assets/icon/fenxiang.png"/></span>
             </div>
           </div>
@@ -67,7 +67,7 @@
       download(filename) {
 
       },
-      deleteFile(filename) {
+      deleteFile(ser, filename) {
 
       },
     }

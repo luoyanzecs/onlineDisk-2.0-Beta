@@ -7,7 +7,7 @@
     <div :style="styleObject" v-show="$store.state.zoomIn">
       <div>
         <input class="field" type="text" name="username"
-               placeholder="USERNAME" v-model="username">
+               placeholder="USERNAME" v-model="userId">
       </div>
       <div>
         <input class="field" type="password" name="password"
@@ -27,13 +27,13 @@
     name: "SignIn",
     data() {
       return {
-        username: '',
+        userId: '',
         pwd: '',
       }
     },
     computed: {
       checkInput() {
-        return this.username != '' && this.pwd != '';
+        return this.userId !== '' && this.pwd !== '';
       },
       imgAddr() {
         return this.$store.state.zoomIn ? require('../../../assets/icon/suoxiao.png')

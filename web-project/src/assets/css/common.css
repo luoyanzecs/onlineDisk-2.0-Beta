@@ -13,7 +13,9 @@
 }
 
 body {
-    background-color: #353b48;
+    /*background-color: #353b48;*/
+    /*background-color: rgba(26, 26, 26, 0.87);*/
+    background-color: #2f3640;
 }
 
 .blank {

@@ -1,6 +1,7 @@
 <template>
   <div class="file-nav" ref="fileNav">
     <input type="file" multiple="multiple" @change="selectFile" ref="fileInput"/>
+    <p v-if="progress">{{ progress }}%</p>
     <div>
       <img @click="switchFold" src="../../../assets/icon/xuanze.png"/>
     </div>
@@ -24,7 +25,9 @@
         isFold: true,
         flowInter: '',
         info: 'SELECT FILE',
-        data: {}
+        files: [],
+        dir: String,
+        progress: 0,
       }
     },
     mounted() {
@@ -43,24 +46,37 @@
       },
       selectFile() {
         const files = this.$refs.fileInput.files;
-        this.info = files && files.length == 1 ? files[0].name
+        this.info = files && files.length ? files[0].name
           : files[0].name + ' and ' + (files.length - 1) + 'files';
-        if (files[0]) {
-          let reader = new FileReader();
-          reader.readAsBinaryString(files[0]);
-          reader.onload = function () {
-          }
-        }
-
+        this.files = files;
+      },
+      notice() {
+        //TODO: notice user check upload info
       },
       upload() {
+        this.notice();
+        let formData = new FormData();
+        formData.append('dir', this.dir);
+        //check file size
+        this.files.forEach(file => formData.append('files', file));
         //submit files to server
         request({
-
+          url: '/upload/' + this.$store.state.userId,
+          method: 'POST',
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          onUploadProgress: e => {
+            if(e.lengthComputable){
+              let complete = ( ((e.loaded / e.total) * 100) | 0);
+              this.progress = complete >= 100 ? 0 : complete;
+            }
+          },
+          data: formData
         }).then(res => {
-
+          //TODO
         }).catch(err => {
-
+          //TODO
         })
       },
     }

@@ -4,7 +4,6 @@
       <Logo></Logo>
       <Menu></Menu>
       <Links>
-        <!--<LinksItems msg="github" url="https://github.com/luoyanzecs/onlineDisk-2.0-Beta"></LinksItems>-->
         <li>
           <a href="https://github.com/luoyanzecs/onlineDisk-2.0-Beta">github</a>
         </li>

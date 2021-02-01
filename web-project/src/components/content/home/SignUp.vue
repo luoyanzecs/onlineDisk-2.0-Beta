@@ -7,7 +7,7 @@
     <div :style="styleObject" >
       <div>
         <input class="field" type="text" name="username"
-               placeholder="USERNAME" v-model="username" @input="checkName">
+               placeholder="USERNAME" v-model="userId" @input="checkName">
       </div>
       <div>
         <input class="field" type="password" name="password"
@@ -29,7 +29,7 @@
       return {
         nameFlag: false,
         pwdFlag: false,
-        username: '',
+        userId: '',
         pwd: '',
       }
     },
@@ -69,7 +69,7 @@
       checkName(event) {
         let regExp = /[A-Z|a-z|0-9]{3,16}/;
         let el = event.target;
-        this.nameFlag = regExp.test(this.username) ? el.style.borderBottom = '#4cd137 solid 1px'
+        this.nameFlag = regExp.test(this.userId) ? el.style.borderBottom = '#4cd137 solid 1px'
           : el.style.borderBottom = '#e84118 solid 1px';
       },
       checkPassword(event) {

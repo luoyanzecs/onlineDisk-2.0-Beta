@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     logStatus: false,
-    username:'',
+    userId:'',
     password:'',
     zoomIn: false,
     zoomUp: false,
