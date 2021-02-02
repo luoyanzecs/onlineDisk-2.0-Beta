@@ -1,21 +1,22 @@
 <template>
-  <div class="home-layout">
-    <div class="blank"></div>
-    <HomeLogo></HomeLogo>
-    <div class="blank"></div>
-    <div class="blank"></div>
-    <Tip></Tip>
-    <div class="blank"></div>
-    <div v-if="!$store.state.logStatus" class="sign-layout">
-      <SignIn></SignIn>
-      <SignUp></SignUp>
+  <div class="container row">
+    <div class="col-sm-12 col-md-12 col-lg-5 section-1">
+      <HomeLogo></HomeLogo>
     </div>
-    <div class="blank"></div>
-    <div class="underline"></div>
-    <div class="content"><p>* The account number and password are
-      composed of 6 to 16 digits and letters.</p>
+    <div class="col-lg-1"></div>
+    <div class="section-2 col-sm-12 col-md-12 col-lg-6">
+      <Tip></Tip>
+      <div v-if="!$store.state.logStatus" class="sign-layout">
+        <SignIn></SignIn>
+        <SignUp></SignUp>
+      </div>
+      <div class="underline"></div>
+      <div class="content">
+        <p>* The account number and password are
+        composed of 6 to 16 digits and letters.</p>
+        <p>* Copyright © 2021 luoyanzeze@icloud.com 版权所有 ICP证 : <a href="https://beian.miit.gov.cn/" target="_blank">备案号</a></p>
+      </div>
     </div>
-    <div class="blank"></div>
   </div>
 </template>
 
@@ -34,30 +35,5 @@
 </script>
 
 <style scoped>
-  .sign-layout {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .home-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .underline {
-    width: 100%;
-    border-bottom: solid 1px #718093;
-  }
-
-  .home-layout .content {
-    width: 80%;
-  }
-
-  .home-layout .content p {
-    font-size: 0.6rem;
-    margin-top: 0.5rem;
-    text-indent: -0.5rem;
-    margin-left: 0.5rem;
-    color: #718093;
-  }
+ @import "../../assets/css/content/home/home.css";
 </style>

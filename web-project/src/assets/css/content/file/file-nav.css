@@ -1,11 +1,11 @@
 .file-nav {
   display: flex;
   flex-direction: row;
-  margin-right: 35px;
   margin-left: auto;
   box-sizing: border-box;
   padding: 4px;
   border-right: 2px #7f8fa6 solid;
+  margin-bottom: 1rem;
   transition: 1s;
   height: 36px;
   width: 30px;

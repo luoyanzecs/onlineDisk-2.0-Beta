@@ -20,4 +20,8 @@
     height: 100%;
     width: 100vw;
   }
+
+  footer {
+    height: 50px;
+  }
 </style>

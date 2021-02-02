@@ -1,16 +1,23 @@
 .file-container {
   margin-top: 2rem;
   color: rgba(245, 246, 250, 0.7);
-  margin-left: 3%;
   position: relative;
 }
 .file-container::before {
-  top: 30px;
+  top: 78px;
   left: 1.5rem;
   position: absolute;
   content: '';
   border-right: dashed 2px #dcdde1;
   height: 100%;
+}
+.file-container .split-line {
+  border-bottom: solid 1px #c7c8cb;
+}
+.file-container .dir-layout {
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 .file-container .fold {
   cursor: pointer;
@@ -20,13 +27,19 @@
   font-weight: bolder;
 }
 .file-container img {
-  padding-top: 0.2rem;
   width: 1.3rem;
   height: 1.3rem;
   cursor: pointer;
 }
+.file-container .img-header {
+  margin-right: 5px;
+}
+.file-container .img-margin {
+  margin-right: 5px;
+  cursor: pointer;
+}
 .file-container .file-item {
-  margin: 0.2rem 2rem 0.2rem 2rem;
+  margin: 0.2rem 0 0.2rem 2rem;
   border-bottom: 1px solid rgba(245, 246, 250, 0.3);
   box-sizing: border-box;
   display: flex;
@@ -34,17 +47,12 @@
 .file-container .file-item:hover {
   border-bottom: #4cd137 solid 1px;
 }
-.file-container .file-item span {
-  margin-right: 5px;
-  display: block;
-}
-.file-container .file-item span:nth-child(2) {
-  white-space: nowrap;
-  font-size: 1.1rem;
+.file-container .file-item .file-font {
   position: relative;
-  top: 6px;
-  overflow: hidden;
-  text-indent: 0.5rem;
-  width: 90%;
+  margin-left: 0.4rem;
+  top: 0.2rem;
+}
+.file-container .file-item .operate {
+  margin-left: auto;
 }
 /*# sourceMappingURL=file.css.map */

@@ -5,7 +5,7 @@
       <Menu></Menu>
       <Links>
         <li>
-          <a href="https://github.com/luoyanzecs/onlineDisk-2.0-Beta">github</a>
+          <a href="https://github.com/luoyanzecs/onlineDisk-2.0-Beta" target="_blank">github</a>
         </li>
         <LinksItems msg="file" url="/file"></LinksItems>
         <LinksItems msg="share" url="/share"></LinksItems>

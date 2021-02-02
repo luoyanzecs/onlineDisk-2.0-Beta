@@ -1,43 +1,47 @@
 .tip-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  color: #f5f6fa;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 80%;
+  font-size: 2.5rem;
+  letter-spacing: -1px;
 }
-.tip-container .tip-content {
+.tip-container span {
+  margin-right: 0.5rem;
+  display: inline-block;
   overflow: hidden;
 }
-.tip-container .tip-content span {
-  position: relative;
-  top: 0.5rem;
-  animation: forwards swift-up;
-  animation-delay: 0.5s;
-}
-.tip-container .tip-content .max {
-  line-height: 3.6rem;
-  letter-spacing: 1px;
-  font-size: 3rem;
-  color: #f5f6fa;
-}
-.tip-container .tip-content i {
+.tip-container span i {
   font-style: normal;
   position: relative;
-  top: 3rem;
+  top: 2.5rem;
   animation: swift-up;
-  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
-.tip-container div:nth-child(1) span:nth-child(1) i {
+.tip-container span:nth-of-type(1) i {
   animation-delay: 0.1s;
 }
-.tip-container div:nth-child(1) span:nth-child(2) i {
+.tip-container span:nth-of-type(2) i {
+  animation-delay: 0.2s;
+}
+.tip-container span:nth-of-type(3) i {
   animation-delay: 0.3s;
 }
-.tip-container div:nth-child(2) span:nth-child(1) i {
+.tip-container span:nth-of-type(4) i {
+  animation-delay: 0.4s;
+}
+.tip-container span:nth-of-type(5) i {
   animation-delay: 0.5s;
 }
-.tip-container div:nth-child(2) span:nth-child(2) i {
-  animation-delay: 0.7s;
+.tip-container span:nth-of-type(6) i {
+  animation-delay: 0.6s;
 }
 @keyframes swift-up {
   to {

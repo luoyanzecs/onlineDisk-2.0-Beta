@@ -1,0 +1,49 @@
+.sign-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.section-1,
+.section-2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15vh;
+}
+
+@media only screen and (min-width: 960px) {
+  .section-1 {
+    margin-top: 30vh;
+  }
+  .section-2 {
+    margin-top: 20vh;
+  }
+}
+
+.underline {
+  margin-top: 0.6rem;
+  width: 100%;
+  border-bottom: solid 1px #718093;
+}
+
+.content {
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 0.6rem;
+  margin-top: 0.5rem;
+  text-indent: -0.6rem;
+  margin-left: 0.5rem;
+  color: #718093;
+
+  &:nth-child(2) {
+    margin-top: 0.2rem;
+  }
+
+  a {
+    font-size: 0.6rem;
+    color: #dcdcdc;
+  }
+}

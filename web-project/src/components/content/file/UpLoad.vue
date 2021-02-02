@@ -11,7 +11,6 @@
         <img src="../../../assets/icon/shangchuan.png" @click="upload"/>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -20,13 +19,19 @@
 
   export default {
     name: "UpLoad",
+    props: {
+      currentDir: {
+        type: String,
+        default: '/home'
+      }
+    },
     data() {
       return {
         isFold: true,
         flowInter: '',
         info: 'SELECT FILE',
+        dir: this.currentDir,
         files: [],
-        dir: String,
         progress: 0,
       }
     },

@@ -1,13 +1,11 @@
 <template>
   <div class="tip-container">
-    <div class="tip-content">
-      <span class="max"><i>welcome </i></span>
-      <span class="max"><i>to</i></span>
-    </div>
-    <div class="tip-content">
-      <span class="max"><i>online </i></span>
-      <span class="max"><i>disk</i></span>
-    </div>
+    <span><i>welcome</i></span>
+    <span><i>to</i></span>
+    <span><i>online</i></span>
+    <span><i>disk</i></span>
+    <span><i>2.0</i></span>
+    <span><i>beta</i></span>
   </div>
 </template>
 

@@ -12,8 +12,7 @@ export default new Vuex.Store({
     zoomUp: false,
     isRsa : false,
     RSA_PUBLIC_KEY_CLIENT: '',
-    RSA_PRIVATE_KEY_SERVER: '',
-    RSA_PUBLIC_KEY_SERVER: ''
+    ENCRYPT_KEY: ''
   },
   mutations: {
     switchZoomIn(){
