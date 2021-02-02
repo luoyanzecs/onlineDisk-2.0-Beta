@@ -5,7 +5,6 @@
     </div>
     <div v-else>
       <UpLoad :current-dir="currentDir"></UpLoad>
-
       <div>
         <img class="img-header" src="../../assets/icon/wenjianjia.png"/>
         <span class="dir-layout" v-for="(dir, index) in currentDir" @click="dispatchDir(index)">
@@ -14,27 +13,18 @@
           <span v-else>/</span>
         </span>
       </div>
-
       <div class="split-line"></div>
-
       <div v-for="(item, itemIndex) in items">
         <div>
           <span @click="unFold(item.ser)" class="fold">{{item.ser}}</span>
-
-
           <div :ref="item.ser">
-
             <div v-for="(file, fileIndex) in item.files" class="file-item">
-
               <span v-if="file.isDir" @click="getFilesList(file.name)">
                 <img src="../../assets/icon/wenjianjia.png"/>
               </span>
-
               <span v-else @click="getFilesList(file.name)" style="width: 1.3rem ; height: 1.3rem">
               </span>
-
               <span class="file-font">{{file.name}} </span>
-
               <div class="operate">
                 <span @click="download(file.name, file.isDir)">
                   <img class="img-margin" src="../../assets/icon/xiazai.png"/>
@@ -46,12 +36,8 @@
                   <img class="img-margin" src="../../assets/icon/fenxiang.png"/>
                 </span>
               </div>
-
             </div>
-
-
           </div>
-
         </div>
       </div>
     </div>
@@ -108,16 +94,17 @@
         })
       },
       shareFile(filename, isDir){
-
+        //TODO
       },
       download(filename, isDir) {
-
+        //TODO
       },
       deleteFile(filename, isDir, itemIndex, fileIndex) {
         this.items[itemIndex].files.splice(fileIndex, 1);
         if (this.items[itemIndex].files.length === 0) {
           this.items.splice(itemIndex, 1);
         }
+        //TODO
         request({
 
         }).then(res => {
