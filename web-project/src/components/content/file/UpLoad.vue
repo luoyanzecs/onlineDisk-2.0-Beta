@@ -8,31 +8,37 @@
     <div class="file-select" >
       <div @click="triggerFileClick"><span>{{info}}</span></div>
       <div>
-        <img src="../../../assets/icon/shangchuan.png" @click="upload"/>
+        <img src="../../../assets/icon/shangchuan.png" @click="upload(null)" />
       </div>
     </div>
+    <Notice v-if="isNotice" :dir="currentDir" :files="files" @noticeChecked="toggleNotice"></Notice>
   </div>
 </template>
 
 <script>
   import {request} from "@/api";
+  const Notice = () => import("@/components/content/file/Notice");
 
   export default {
     name: "UpLoad",
     props: {
       currentDir: {
         type: String,
-        default: '/home'
+        default: 'home',
       }
+    },
+    components: {
+      Notice
     },
     data() {
       return {
         isFold: true,
         flowInter: '',
         info: 'SELECT FILE',
-        dir: this.currentDir,
-        files: [],
+        files: FileList,
         progress: 0,
+        isNotice: false,
+        isUpload: false,
       }
     },
     mounted() {
@@ -55,34 +61,40 @@
           : files[0].name + ' and ' + (files.length - 1) + 'files';
         this.files = files;
       },
-      notice() {
-        //TODO: notice user check upload info
+      toggleNotice(data) {
+        data.status === 'done' ?
+          (this.isUpload = true) && this.upload(data.uploadDir)
+          : (this.isUpload = false) && (this.isNotice = !this.isNotice);
       },
-      upload() {
-        this.notice();
-        let formData = new FormData();
-        formData.append('dir', this.dir);
-        //check file size
-        this.files.forEach(file => formData.append('files', file));
-        //submit files to server
-        request({
-          url: '/upload/' + this.$store.state.userId,
-          method: 'POST',
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-          onUploadProgress: e => {
-            if(e.lengthComputable){
-              let complete = ( ((e.loaded / e.total) * 100) | 0);
-              this.progress = complete >= 100 ? 0 : complete;
-            }
-          },
-          data: formData
-        }).then(res => {
-          //TODO
-        }).catch(err => {
-          //TODO
-        })
+      upload(uploadDir) {
+        this.isNotice = !this.isNotice;
+        if (this.isUpload && uploadDir) {
+          let formData = new FormData();
+          formData.append('dir', uploadDir);
+          //check file size
+          this.files.forEach(file =>
+            file.size <= 100*1024*1024 && formData.append('files', file));
+          //submit files to server
+          request({
+            url: '/upload/' + this.$store.state.userId,
+            method: 'POST',
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+            onUploadProgress: e => {
+              if(e.lengthComputable){
+                let complete = ( ((e.loaded / e.total) * 100) | 0);
+                this.progress = complete >= 100 ? 0 : complete;
+              }
+            },
+            data: formData
+          }).then(res => {
+            //TODO
+          }).catch(err => {
+            //TODO
+          });
+          this.isUpload = !this.isUpload;
+        }
       },
     }
   }

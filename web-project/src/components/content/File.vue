@@ -4,12 +4,12 @@
       <h1>Please login</h1>
     </div>
     <div v-else>
-      <UpLoad :current-dir="currentDir"></UpLoad>
+      <UpLoad :current-dir="currentDirStr"></UpLoad>
       <div>
         <img class="img-header" src="../../assets/icon/wenjianjia.png"/>
-        <span class="dir-layout" v-for="(dir, index) in currentDir" @click="dispatchDir(index)">
+        <span class="dir-layout" v-for="(dir, index) in currentDirArr" @click="dispatchDir(index)">
           {{dir}}
-          <span v-if="index === currentDir.length - 1">:</span>
+          <span v-if="index === currentDirArr.length - 1">:</span>
           <span v-else>/</span>
         </span>
       </div>
@@ -19,10 +19,10 @@
           <span @click="unFold(item.ser)" class="fold">{{item.ser}}</span>
           <div :ref="item.ser">
             <div v-for="(file, fileIndex) in item.files" class="file-item">
-              <span v-if="file.isDir" @click="getFilesList(file.name)">
+              <span v-if="file.isDir" @click="getFilesList(currentDirStr + '/' + file.name)">
                 <img src="../../assets/icon/wenjianjia.png"/>
               </span>
-              <span v-else @click="getFilesList(file.name)" style="width: 1.3rem ; height: 1.3rem">
+              <span v-else style="width: 1.3rem ; height: 1.3rem">
               </span>
               <span class="file-font">{{file.name}} </span>
               <div class="operate">
@@ -57,24 +57,29 @@
           {ser: 'A', files: [{name: 'filename1', isDir: true}, {name: 'filename2', isDir: false}, {name: '333333', isDir: false}]},
           {ser: 'B', files: [{name: '333333', isDir: false}, {name: '44444', isDir: false}]},
         ],
-        currentDir: ['home', 'test']
+        currentDirArr: []
+      }
+    },
+    computed: {
+      currentDirStr() {
+        let dir = '';
+        this.currentDirArr.forEach(d => dir += '/' + d);
+        return dir;
       }
     },
     components: {
       UpLoad
     },
     mounted() {
-      //asynchronous get RSA_PUBLIC_KEY_CLIENT,
-      // and create RSA_PUBLIC_KEY_SERVER, RSA_PRIVATE_KEY_SERVER with vuex actions,
-      // request()
-      this.getFilesList('home');
+      this.getFilesList('/home');
     },
     methods: {
       dispatchDir(index){
         let dir = '';
         for (let i = 0; i <= index; i++) {
-          dir += '/' + this.currentDir[i];
+          dir += '/' + this.currentDirArr[i];
         }
+        this.currentDirArr.splice(index + 1);
         this.getFilesList(dir);
       },
       unFold(ser) {
@@ -83,11 +88,14 @@
           ? 'none' : 'block'
       },
       getFilesList(dir) {
+        //test
+        this.currentDirArr = dir.split('/').filter(item => !(item === ''));
         request({
           //url: /file/download/home
         }).then(res => {
           // if encryption use {$store.state.RSA_PRIVATE_KEY_SERVER} to decrypt.
           // res: "A":["filename1","filename2"],"B":["filename3", "filename4"]
+          this.currentDirArr = dir.split('/').filter(o => o !== '');
           this.items = JSON.parse(res.data);
         }).catch(err => {
           //print err info

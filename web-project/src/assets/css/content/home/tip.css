@@ -43,6 +43,11 @@
 .tip-container span:nth-of-type(6) i {
   animation-delay: 0.6s;
 }
+@media only screen and (min-width: 960px) {
+  .tip-container {
+    display: block;
+  }
+}
 @keyframes swift-up {
   to {
     top: 0;
