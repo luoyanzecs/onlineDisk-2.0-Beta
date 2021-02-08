@@ -1,43 +1,22 @@
 <template>
   <div class="file-container">
-    <div v-if="$store.state.logStatus">
-      <h1>Please login</h1>
-    </div>
+    <h1 v-if="$store.state.isLogin">Please login ^ ^</h1>
     <div v-else>
       <UpLoad :current-dir="currentDirStr"></UpLoad>
       <div>
         <img class="img-header" src="../../assets/icon/wenjianjia.png"/>
-        <span class="dir-layout" v-for="(dir, index) in currentDirArr" @click="dispatchDir(index)">
-          {{dir}}
-          <span v-if="index === currentDirArr.length - 1">:</span>
-          <span v-else>/</span>
-        </span>
+        <span class="dir-layout" v-for="(dir, index) in currentDirArr" @click="dispatchDir(index)">{{dir}}/</span>
       </div>
       <div class="split-line"></div>
-      <div v-for="(item, itemIndex) in items">
-        <div>
-          <span @click="unFold(item.ser)" class="fold">{{item.ser}}</span>
-          <div :ref="item.ser">
-            <div v-for="(file, fileIndex) in item.files" class="file-item">
-              <span v-if="file.isDir" @click="getFilesList(currentDirStr + '/' + file.name)">
-                <img src="../../assets/icon/wenjianjia.png"/>
-              </span>
-              <span v-else style="width: 1.3rem ; height: 1.3rem">
-              </span>
-              <span class="file-font">{{file.name}} </span>
-              <div class="operate">
-                <span @click="download(file.name, file.isDir)">
-                  <img class="img-margin" src="../../assets/icon/xiazai.png"/>
-                </span>
-                <span @click="deleteFile(file.name, file.isDir, itemIndex, fileIndex)">
-                  <img class="img-margin" src="../../assets/icon/shanchu.png"/>
-                </span>
-                <span @click="shareFile(file.name, file.isDir)">
-                  <img class="img-margin" src="../../assets/icon/fenxiang.png"/>
-                </span>
-              </div>
-            </div>
-          </div>
+      <div v-for="(file, fileIndex) in items" class="file-item">
+        <img v-if="file.isDir" @click="getFilesList(currentDirStr + '/' + file.name)" src="../../assets/icon/wenjianjia.png"/>
+        <span v-else style="width: 1.3rem ; height: 1.3rem"> </span>
+        <span v-if="file.isDir" class="file-font" style="cursor: default">{{file.name}} </span>
+        <span v-else class="file-font"  @click="showOperate(file.name)">{{file.name}} </span>
+        <div v-if="!file.isDir" class="operate" :ref="file.name" >
+          <img @click="download(file.name, file.isDir)"  src="../../assets/icon/xiazai.png"/>
+          <img @click="deleteFile(file.name, file.isDir, fileIndex)" src="../../assets/icon/shanchu.png"/>
+          <img @click="shareFile(file.name, file.isDir)" src="../../assets/icon/fenxiang.png"/>
         </div>
       </div>
     </div>
@@ -53,9 +32,10 @@
     data() {
       return {
         items: [
-          //test data
-          {ser: 'A', files: [{name: 'filename1', isDir: true}, {name: 'filename2', isDir: false}, {name: '333333', isDir: false}]},
-          {ser: 'B', files: [{name: '333333', isDir: false}, {name: '44444', isDir: false}]},
+          {name: 'filename1', isDir: true},
+          {name: 'filename2', isDir: false},
+          {name: '333333', isDir: false},
+          {name: '44444', isDir: false}
         ],
         currentDirArr: []
       }
@@ -74,18 +54,16 @@
       this.getFilesList('/home');
     },
     methods: {
-      dispatchDir(index){
+      dispatchDir(index) {
         let dir = '';
         for (let i = 0; i <= index; i++) {
           dir += '/' + this.currentDirArr[i];
         }
-        this.currentDirArr.splice(index + 1);
         this.getFilesList(dir);
       },
-      unFold(ser) {
-        let style = this.$refs[ser][0].style;
-        style.display = (style.display === '') || (style.display === 'block')
-          ? 'none' : 'block'
+      showOperate(name) {
+        this.$refs[name][0].style = 'transform: translateX(-75px);';
+        setTimeout(() => this.$refs[name][0].style = '', 4000);
       },
       getFilesList(dir) {
         //test
@@ -93,39 +71,21 @@
         request({
           //url: /file/download/home
         }).then(res => {
-          // if encryption use {$store.state.RSA_PRIVATE_KEY_SERVER} to decrypt.
-          // res: "A":["filename1","filename2"],"B":["filename3", "filename4"]
           this.currentDirArr = dir.split('/').filter(o => o !== '');
           this.items = JSON.parse(res.data);
-        }).catch(err => {
-          //print err info
-        })
+        }).catch(err => {})
       },
-      shareFile(filename, isDir){
+      shareFile(filename, isDir) {
         //TODO
+        request({}).then(res => {}).catch(err => {})
       },
       download(filename, isDir) {
         //TODO
+        request({}).then(res => {}).catch(err => {})
       },
-      deleteFile(filename, isDir, itemIndex, fileIndex) {
-        this.items[itemIndex].files.splice(fileIndex, 1);
-        if (this.items[itemIndex].files.length === 0) {
-          this.items.splice(itemIndex, 1);
-        }
+      deleteFile(filename, isDir, fileIndex) {
         //TODO
-        request({
-
-        }).then(res => {
-
-          // if () {
-          //   this.items[itemIndex].files.splice(fileIndex, 1);
-          //   if (this.items[itemIndex].files.length === 0) {
-          //     this.items.splice(itemIndex, 1);
-          //   }
-          // } else {
-          //   alert('wrong in delete');
-          // }
-        }).catch(err => {
+        request({}).then(res => {}).catch(err => {
           alert('wrong in delete')
         })
       },

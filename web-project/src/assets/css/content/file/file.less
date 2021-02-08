@@ -2,66 +2,68 @@
   margin-top: 2rem;
   color: rgba(245, 246, 250, 0.7);
   position: relative;
-
-  &::before {
-    top: 78px;
-    left: 1.5rem;
-    position: absolute;
-    content: '';
-    border-right: dashed 2px rgba(220, 221, 225,1.0);
-    height: 100%;
+  .img-header {
+    margin-right: 5px;
   }
-
-  .split-line {
-    border-bottom: solid 1px #c7c8cb;
-  }
-
   .dir-layout {
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
   }
-
-  .fold {
-    cursor: pointer;
-    position: relative;
-    top: 5px;
-    font-size: 1.5rem;
-    font-weight: bolder;
+  .split-line {
+    border-bottom: solid 2px #b8b9bc;
+    margin-bottom: 1rem;
   }
-
   img {
     width: 1.3rem;
     height: 1.3rem;
     cursor: pointer;
   }
-
-  .img-header {
-    margin-right: 5px;
-  }
-
-  .img-margin {
-    margin-right: 5px;
-    cursor: pointer;
-  }
-
   .file-item {
-    margin: 0.2rem 0 0.2rem 2rem;
+    margin: 0.3rem 0 0.5rem 2rem;
     border-bottom: 1px solid rgba(245, 246, 250, 0.3);
+    border-right: #7f8fa6 solid 2px;
     box-sizing: border-box;
     display: flex;
-
+    position: relative;
+    overflow: hidden;
     &:hover {
       border-bottom: rgba(76, 209, 55,1.0) solid 1px;
+      .operate {
+        transform: translateX(-75px);
+        -webkit-transform: translateX(-75px);
+        -o-transform: translateX(-75px);
+      }
+      @media only screen and (min-width: 960px) {
+        .operate {
+          transform: translateX(0);
+          -webkit-transform: translateX(0);
+          -o-transform: translateX(0);
+        }
+      }
     }
-
     .file-font {
       position: relative;
       margin-left: 0.4rem;
-      top: 0.2rem;
+      top: 0.1rem;
+      cursor: pointer;
     }
     .operate {
-      margin-left: auto;
+      position: absolute;
+      transition: .7s;
+      transition-delay: 0.5s;
+      -o-transition: .7s;
+      -o-transition-delay: .5s;
+      -webkit-transition: .7s;
+      -webkit-transition-delay: .5s;
+      right: -75px;
+
+      @media only screen and (min-width: 960px) {
+        right: 0;
+      }
+      img {
+        margin-right: 5px;
+      }
     }
 
   }

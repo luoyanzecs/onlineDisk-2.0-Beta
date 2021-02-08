@@ -1,13 +1,15 @@
 <template>
-  <div class="notice-container">
-    <div class="arrow"></div>
+  <div class="notice-container" ref="card">
+    <div>
+      <img @click="sendStatus('cancel')" src="../../../assets/icon/down.png"/>
+    </div>
     <h3>check upload information</h3>
     <div>
       <span>UPLOAD DIR : {{selectDir}}</span>
       <span class="other" @click="isShowBrowse = !isShowBrowse">...</span>
     </div>
     <div>
-      <div  v-show="isShowBrowse">
+      <div v-show="isShowBrowse">
         <span>DIR LIST : </span>
         <ul>
           <li v-for="item in dirs" @click="selectDir = item">{{item}}</li>
@@ -19,8 +21,7 @@
           {{index + 1}}. {{file.name}}
         </li>
       </ul>
-      <span class="submit" @click="sendStatus('done')">done</span>
-      <span class="submit" @click="sendStatus('cancel')">cancel</span>
+      <span class="submit" @click="sendStatus('done')">OK</span>
       <p>*Single file size <= 100MB.</p>
     </div>
   </div>
@@ -69,7 +70,7 @@
           uploadDir: this.selectDir,
           status: sta
         };
-        this.$emit('noticeChecked', data);
+        this.$emit('noticeCaller', data);
       },
     }
   }

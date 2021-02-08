@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link :to="url">{{tile}}</router-link>
+    <router-link :to="url" @click.native="notice">{{tile}}</router-link>
   </li>
 </template>
 
@@ -21,6 +21,11 @@
       return {
         routeUrl: this.url,
         tile: this.msg,
+      }
+    },
+    methods: {
+      notice() {
+        this.$emit('fold');
       }
     }
   }

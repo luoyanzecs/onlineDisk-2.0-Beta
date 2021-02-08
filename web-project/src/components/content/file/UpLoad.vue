@@ -11,7 +11,7 @@
         <img src="../../../assets/icon/shangchuan.png" @click="upload(null)" />
       </div>
     </div>
-    <Notice v-if="isNotice" :dir="currentDir" :files="files" @noticeChecked="toggleNotice"></Notice>
+    <Notice ref="notice" :dir="currentDir" :files="files" @noticeCaller="noticeCallee"></Notice>
   </div>
 </template>
 
@@ -35,7 +35,7 @@
         isFold: true,
         flowInter: '',
         info: 'SELECT FILE',
-        files: FileList,
+        files: null,
         progress: 0,
         isNotice: false,
         isUpload: false,
@@ -61,14 +61,24 @@
           : files[0].name + ' and ' + (files.length - 1) + 'files';
         this.files = files;
       },
-      toggleNotice(data) {
-        data.status === 'done' ?
-          (this.isUpload = true) && this.upload(data.uploadDir)
-          : (this.isUpload = false) && (this.isNotice = !this.isNotice);
+      toggleNotice() {
+        let body = document.body || document.documentElement ;
+        if (body.clientWidth <= 768) {
+          this.$refs.notice.$refs.card.style.transform =
+            !this.isNotice ? 'translateY(0)' : 'translateY(50vh)';
+        } else {
+          this.$refs.notice.$refs.card.style.transform =
+            !this.isNotice ? 'translateX(0)' : 'translateX(101%)';
+        }
+        this.isNotice = !this.isNotice;
+      },
+      noticeCallee(data) {
+        this.isUpload = data.status === 'done';
+        this.upload(data.uploadDir);
       },
       upload(uploadDir) {
-        this.isNotice = !this.isNotice;
-        if (this.isUpload && uploadDir) {
+        this.files ? this.toggleNotice() : '';
+        if (this.isUpload && uploadDir && this.files) {
           let formData = new FormData();
           formData.append('dir', uploadDir);
           //check file size

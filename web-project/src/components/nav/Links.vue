@@ -1,5 +1,5 @@
 <template>
-  <div class="collapse">
+  <div class="collapse" ref="collapse">
     <ul class="links">
       <slot></slot>
     </ul>

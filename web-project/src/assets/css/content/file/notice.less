@@ -1,31 +1,48 @@
 .notice-container {
   position: absolute;
-  top: 50px;
-  right: 0;
-  @media only screen and (max-width: 768px) {
-    min-width: 50vw;
-  }
-  max-width: 70vw;
-  box-shadow: rgba(28, 31, 36, 0.4) 3px 3px 3px;
-  color: #0080c3;
-  background-color: #d2d3d6;
-  border: black solid 1px;
-  padding: 10px;
-  border-radius: 4px;
-  z-index: 3;
+  //color: #0080c3;
+  overflow: scroll;
+  transition: 1s;
+  background-color: #192a56;
 
-  .arrow {
-    position: absolute;
-    height: 1rem;
-    width: 1rem;
-    background-color: #d2d3d6;
+  @media only screen and (max-width: 768px) {
+    position: fixed;
+    width: 100vw;
+    height: 50vh;
+    right: 0;
+    bottom: 0;
+    box-shadow: #a2a2a5 0 -1px 1px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
     box-sizing: border-box;
-    border-top: black solid 1px;
-    border-left: black solid 1px;
-    transform: rotate(45deg);
-    right: 4px;
-    top: -8px;
-    z-index: 1;
+    padding: 10px 2rem 1rem 2rem;
+    z-index: 3;
+    transform: translateY(51vh);
+  }
+
+  @media only screen and (min-width: 768px) {
+    position: fixed;
+    right: 0;
+    top: 25vh;
+    height: 50vh;
+    width: 40vw;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: #b9b9b9 -1px 0 1px;
+
+    transform: translateX(101%);
+    padding: 10px 2rem 0 2rem;
+    z-index: 3;
+
+    img {
+      transform: rotate(-90deg);
+    }
+  }
+
+  img {
+    width: 1.3rem;
+    height: 1.3rem;
+    cursor: pointer;
   }
 
   .other {
@@ -36,14 +53,13 @@
     box-sizing: border-box;
   }
 
-
   h3 {
     border-bottom: solid #7f8fa6 2px;
     padding-bottom: 2px;
     margin-bottom: 3px;
   }
   ul {
-    max-height: 50vh;
+    max-height: 25vh;
     overflow: scroll;
     li {
       text-indent: 1rem;

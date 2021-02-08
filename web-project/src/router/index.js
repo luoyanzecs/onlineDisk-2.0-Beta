@@ -41,7 +41,7 @@ const routes = [
     name: 'Community',
     component: Community,
     meta: {
-      tile: 'community',
+      title: 'community',
     }
   }
 ];

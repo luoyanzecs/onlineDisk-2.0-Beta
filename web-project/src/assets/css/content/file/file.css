@@ -3,56 +3,69 @@
   color: rgba(245, 246, 250, 0.7);
   position: relative;
 }
-.file-container::before {
-  top: 78px;
-  left: 1.5rem;
-  position: absolute;
-  content: '';
-  border-right: dashed 2px #dcdde1;
-  height: 100%;
-}
-.file-container .split-line {
-  border-bottom: solid 1px #c7c8cb;
+.file-container .img-header {
+  margin-right: 5px;
 }
 .file-container .dir-layout {
   font-weight: bold;
   font-size: 1.2rem;
   cursor: pointer;
 }
-.file-container .fold {
-  cursor: pointer;
-  position: relative;
-  top: 5px;
-  font-size: 1.5rem;
-  font-weight: bolder;
+.file-container .split-line {
+  border-bottom: solid 2px #b8b9bc;
+  margin-bottom: 1rem;
 }
 .file-container img {
   width: 1.3rem;
   height: 1.3rem;
   cursor: pointer;
 }
-.file-container .img-header {
-  margin-right: 5px;
-}
-.file-container .img-margin {
-  margin-right: 5px;
-  cursor: pointer;
-}
 .file-container .file-item {
-  margin: 0.2rem 0 0.2rem 2rem;
+  margin: 0.3rem 0 0.5rem 2rem;
   border-bottom: 1px solid rgba(245, 246, 250, 0.3);
+  border-right: #7f8fa6 solid 2px;
   box-sizing: border-box;
   display: flex;
+  position: relative;
+  overflow: hidden;
 }
 .file-container .file-item:hover {
   border-bottom: #4cd137 solid 1px;
 }
+.file-container .file-item:hover .operate {
+  transform: translateX(-75px);
+  -webkit-transform: translateX(-75px);
+  -o-transform: translateX(-75px);
+}
+@media only screen and (min-width: 960px) {
+  .file-container .file-item:hover .operate {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+}
 .file-container .file-item .file-font {
   position: relative;
   margin-left: 0.4rem;
-  top: 0.2rem;
+  top: 0.1rem;
+  cursor: pointer;
 }
 .file-container .file-item .operate {
-  margin-left: auto;
+  position: absolute;
+  transition: 0.7s;
+  transition-delay: 0.5s;
+  -o-transition: 0.7s;
+  -o-transition-delay: 0.5s;
+  -webkit-transition: 0.7s;
+  -webkit-transition-delay: 0.5s;
+  right: -75px;
+}
+@media only screen and (min-width: 960px) {
+  .file-container .file-item .operate {
+    right: 0;
+  }
+}
+.file-container .file-item .operate img {
+  margin-right: 5px;
 }
 /*# sourceMappingURL=file.css.map */
