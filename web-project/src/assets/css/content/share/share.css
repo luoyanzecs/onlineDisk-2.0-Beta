@@ -1,0 +1,35 @@
+.share-container {
+  margin-top: 3rem;
+  color: rgba(245, 246, 250, 0.7);
+}
+.share-container .share-header {
+  border-bottom: 2px solid #7f8fa6;
+  text-indent: 0.5rem;
+  margin-bottom: 1rem;
+}
+.share-container .file-item {
+  margin: 0.3rem 0 0.5rem 2rem;
+  text-indent: 1.3rem;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(245, 246, 250, 0.3);
+  border-right: 2px solid #7f8fa6;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+}
+.share-container .file-item:hover {
+  border-bottom: 1px solid #4cd137;
+}
+.share-container .file-item:hover img {
+  right: 3px !important;
+}
+.share-container .file-item img {
+  transition: 0.5s;
+  width: 1.3rem;
+  height: 1.3rem;
+  position: absolute;
+  top: -3px;
+  right: -1.3rem;
+  cursor: pointer;
+}
+/*# sourceMappingURL=share.css.map */
