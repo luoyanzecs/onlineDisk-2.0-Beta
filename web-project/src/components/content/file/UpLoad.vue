@@ -37,7 +37,6 @@
         info: 'SELECT FILE',
         files: null,
         progress: 0,
-        isNotice: false,
         isUpload: false,
       }
     },
@@ -62,15 +61,7 @@
         this.files = files;
       },
       toggleNotice() {
-        let body = document.body || document.documentElement ;
-        if (body.clientWidth <= 768) {
-          this.$refs.notice.$refs.card.style.transform =
-            !this.isNotice ? 'translateY(0)' : 'translateY(50vh)';
-        } else {
-          this.$refs.notice.$refs.card.style.transform =
-            !this.isNotice ? 'translateX(0)' : 'translateX(101%)';
-        }
-        this.isNotice = !this.isNotice;
+        this.$refs.notice.$refs.card.toggle();
       },
       noticeCallee(data) {
         this.isUpload = data.status === 'done';

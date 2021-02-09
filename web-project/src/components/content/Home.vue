@@ -14,7 +14,7 @@
       <div class="content">
         <p>* The account number and password are
         composed of 6 to 16 digits and letters.</p>
-        <p>* Copyright © 2021 luoyanzeze@icloud.com 版权所有 ICP证 : <a href="https://beian.miit.gov.cn/" target="_blank">备案号</a></p>
+        <p>* Copyright © 2021 luoyanzeze@icloud.com 版权所有 ICP证 : <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备 2021002150号</a></p>
       </div>
     </div>
   </div>

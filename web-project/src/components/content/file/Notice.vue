@@ -1,5 +1,5 @@
 <template>
-  <div class="notice-container" ref="card">
+  <Card ref="card">
     <div>
       <img @click="sendStatus('cancel')" src="../../../assets/icon/down.png"/>
     </div>
@@ -24,11 +24,12 @@
       <span class="submit" @click="sendStatus('done')">OK</span>
       <p>*Single file size <= 100MB.</p>
     </div>
-  </div>
+  </Card>
 </template>
 
 <script>
   import {request} from "@/api";
+  import Card from "@/components/common/Card";
 
   export default {
     name: "Notice",
@@ -38,6 +39,9 @@
         default: '/home'
       },
       files: {}
+    },
+    components: {
+      Card
     },
     data() {
       return {

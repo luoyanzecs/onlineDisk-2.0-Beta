@@ -1,0 +1,64 @@
+.chat-container {
+  position: fixed;
+  z-index: 5;
+  color: #dcdde1;
+}
+@media only screen and (max-width: 768px) {
+  .chat-container {
+    right: 0.5rem;
+    bottom: 5vh;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .chat-container {
+    right: 0.5rem;
+    bottom: 10vh;
+  }
+}
+.chat-container img {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.chat-container .card-layout .msg-send {
+  width: 90%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.chat-container .card-layout .msg-send textarea {
+  background-color: #192a56;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  width: 75%;
+  font-size: 1.1rem;
+  height: 1.5rem;
+  border: none;
+  outline: none;
+  border-bottom: solid 1px #dcdde1;
+  resize: none;
+  color: white;
+  margin: 0 1rem 0 1rem;
+  padding: 0.3rem 0 0.3rem 0;
+}
+.chat-container .card-layout .msg-send span {
+  display: inline-block;
+  font-size: 2rem;
+}
+.chat-container .card-layout .record {
+  overflow: scroll;
+  border-left: #7f8fa6 solid 2px;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  width: 90%;
+  height: 75%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+/*# sourceMappingURL=chat.css.map */

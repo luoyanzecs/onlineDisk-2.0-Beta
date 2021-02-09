@@ -53,17 +53,12 @@
   margin-top: 1.2rem;
   margin-bottom: 1rem;
 }
-.community-container .text-input {
-  overflow: scroll;
-  transition: 1s;
-  background-color: #192a56;
-}
-.community-container .text-input img {
+.community-container .card-layout img {
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
 }
-.community-container .text-input textarea {
+.community-container .card-layout textarea {
   -webkit-appearance: none;
   color: #dcdde1;
   font-size: 1.2rem;
@@ -77,65 +72,11 @@
   outline: none;
   overflow: scroll;
   resize: none;
+  width: 90%;
+  height: 70%;
+  margin-top: 0.5rem;
 }
-@media only screen and (max-width: 768px) {
-  .community-container .text-input {
-    position: fixed;
-    width: 100vw;
-    height: 50vh;
-    right: 0;
-    bottom: 0;
-    box-shadow: #a2a2a5 0 -1px 1px;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    transform: translateY(50vh);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .community-container .text-input img {
-    margin-top: 10px;
-  }
-  .community-container .text-input textarea {
-    margin-top: 2rem;
-    width: 90%;
-    height: 50%;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .community-container .text-input {
-    position: fixed;
-    -webkit-appearance: none;
-    right: 0;
-    top: 25vh;
-    height: 50vh;
-    width: 50vw;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    box-shadow: #b9b9b9 -1px 0 1px;
-    transform: translateX(101%);
-  }
-  .community-container .text-input img {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin-right: 10px;
-    margin-left: 10px;
-    transform: rotate(-90deg) translateX(20vh);
-    vertical-align: middle;
-  }
-  .community-container .text-input textarea {
-    margin-top: 2.5rem;
-    width: 80%;
-    height: 70%;
-  }
-}
-@media only screen and (min-width: 960px) {
-  .community-container .text-input {
-    width: 40vw;
-  }
-}
-.community-container .text-input .pub-btn {
+.community-container .card-layout .pub-btn {
   margin-top: 1rem;
   padding: 5px 8px 5px 8px;
   border: solid 3px rgba(76, 209, 55, 0);
@@ -147,7 +88,7 @@
   align-items: center;
   transition: 1.5s;
 }
-.community-container .text-input span {
+.community-container .card-layout span {
   text-indent: -4px;
   display: block;
   font-weight: bold;

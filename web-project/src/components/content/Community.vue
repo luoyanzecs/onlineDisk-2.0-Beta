@@ -20,18 +20,20 @@
         <div class="split-line"></div>
       </div>
     </div>
-    <div class="text-input" ref="card" >
+
+    <Card ref="card" >
       <img @click="toggleEditor" src="../../assets/icon/down.png"/>
       <textarea type="text" v-model="inputContext"> </textarea>
       <div class="pub-btn" @click="publish" ref="spanBorder">
         <span ref="publishBtn">OK</span>
       </div>
-    </div>
+    </Card>
   </div>
 </template>
 
 <script>
   import {request} from "@/api";
+  import Card from "@/components/common/Card";
 
   export default {
     name: "Community",
@@ -42,24 +44,18 @@
           {time: '2021年2月5日 08:12 ', authorId: 'authorId', body: '灰色部分的是图片，因为p标签是块状元素，本来图片应该出现在第二行文字的下面，但是，却出现在了第二行文字的上面，经过分析，因为我给p标签的样式设置了宽度24px和高度，设置的行高也是24px，又因为p标签是块状元素，虽然，在视觉上看起来因为p标签放不下那么多的字而换行，但，实际上，p标签的所占的空间就是由给他设置的宽度和高度组成的地方，所以，img标签认为第一行文字下面就是一片空的地方，他可以使用这块地方，所以，就出现在第二行字的上面了', response: [{id: 'user1', time: '2021年2月5日 08:12', context: '灰色部分的是图片，因为p标签是块状元素，本来图片应该出现在第二行文字的下面，但是，却出现在了第二行文字的上面，'},{id: 'user2', time:'2021年2月5日 08:12', context: '灰色部分的是图片，因为p标签是块状元素，本来图片应该出现在第二行文字的下面，但是，却出现在了第二行文字的上面，'}]},
           {time: '2021年2月5日 08:12 ', authorId: 'authorId', body: '灰色部分的是图片，因为p标签是块状元素，本来图片应该出现在第二行文字的下面，但是，却出现在了第二行文字的上面，经过分析，因为我给p标签的样式设置了宽度24px和高度，设置的行高也是24px，又因为p标签是块状元素，虽然，在视觉上看起来因为p标签放不下那么多的字而换行，但，实际上，p标签的所占的空间就是由给他设置的宽度和高度组成的地方，所以，img标签认为第一行文字下面就是一片空的地方，他可以使用这块地方，所以，就出现在第二行字的上面了', response: [{id: 'user1', time: '2021年2月5日 08:12', context: '灰色部分的是图片，因为p标签是块状元素，本来图片应该出现在第二行文字的下面，但是，却出现在了第二行文字的上面，'},{id: 'user2', time:'2021年2月5日 08:12', context: '灰色部分的是图片，因为p标签是块状元素，本来图片应该出现在第二行文字的下面，但是，却出现在了第二行文字的上面，'}]},
         ],
-        isEdit: false,
         inputContext: 'Write your idea...',
       }
+    },
+    components: {
+      Card,
     },
     mounted() {
       request({}).then(res => {}).catch(err => {});
     },
     methods: {
       toggleEditor() {
-        let body = document.body || document.documentElement ;
-        if (body.clientWidth <= 768) {
-          !this.isEdit ? (body.style.overflow='hidden', this.$refs.card.style.tansform = 'translateY(0)')
-            : (body.style.overflow='', this.$refs.card.style.transform = 'translateY(50vh)');
-        } else {
-          this.$refs.card.style.transform =
-            !this.isEdit ? 'translateX(0)' : 'translateX(101%)';
-        }
-        this.isEdit = !this.isEdit;
+        this.$refs.card.toggle();
       },
       publish() {
         let btn = this.$refs.publishBtn;

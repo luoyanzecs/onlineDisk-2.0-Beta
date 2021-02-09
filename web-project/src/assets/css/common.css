@@ -13,9 +13,10 @@
 }
 
 body {
-    /*background-color: #353b48;*/
-    /*background-color: rgba(26, 26, 26, 0.87);*/
     background-color: #2f3640;
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
 }
 
 .blank {

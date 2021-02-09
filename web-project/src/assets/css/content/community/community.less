@@ -61,11 +61,7 @@
     }
   }
 
-  .text-input {
-    overflow: scroll;
-    transition: 1s;
-    background-color: #192a56;
-
+  .card-layout {
     img {
       width: 1.5rem;
       height: 1.5rem;
@@ -86,64 +82,9 @@
       outline: none;
       overflow: scroll;
       resize: none;
-    }
-
-    @media only screen and (max-width: 768px) {
-        position: fixed;
-        width: 100vw;
-        height: 50vh;
-        right: 0;
-        bottom: 0;
-        box-shadow: #a2a2a5 0 -1px 1px;
-        border-top-right-radius: 30px;
-        border-top-left-radius: 30px;
-        transform: translateY(50vh);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-      img {
-        margin-top: 10px;
-      }
-
-      textarea {
-        margin-top: 2rem;
-        width: 90%;
-        height: 50%;
-      }
-    }
-
-    @media only screen and (min-width: 768px) {
-      position: fixed;
-      -webkit-appearance: none;
-      right: 0;
-      top: 25vh;
-      height: 50vh;
-      width: 50vw;
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
-      box-shadow: #b9b9b9 -1px 0 1px;
-      transform: translateX(101%);
-
-      img {
-        position: relative;
-        top: 0;
-        left: 0;
-        margin-right: 10px;
-        margin-left: 10px;
-        transform: rotate(-90deg) translateX(20vh);
-        vertical-align: middle;
-      }
-
-      textarea {
-        margin-top: 2.5rem;
-        width: 80%;
-        height: 70%;
-      }
-    }
-
-    @media only screen and (min-width: 960px) {
-      width: 40vw;
+      width: 90%;
+      height: 70%;
+      margin-top: .5rem;
     }
 
     .pub-btn {

@@ -1,0 +1,44 @@
+.card-layout {
+  position: fixed;
+  overflow: scroll;
+  transition: 1s;
+  background-color: #192a56;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .card-layout {
+    position: fixed;
+    width: 100vw;
+    height: 70vh;
+    right: 0;
+    bottom: 0;
+    box-shadow: #a2a2a5 0 -1px 1px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    box-sizing: border-box;
+    padding: 10px 2rem 1rem 2rem;
+    z-index: 12;
+    transform: translateY(71vh);
+  }
+}
+@media only screen and (min-width: 768px) {
+  .card-layout {
+    position: fixed;
+    right: 0;
+    top: 25vh;
+    height: 70vh;
+    width: 40vw;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: #b9b9b9 -1px 0 1px;
+    transform: translateX(101%);
+    padding: 10px 2rem 0 2rem;
+    z-index: 12;
+  }
+  .card-layout img {
+    transform: rotate(-90deg);
+  }
+}
+/*# sourceMappingURL=card-common.css.map */
