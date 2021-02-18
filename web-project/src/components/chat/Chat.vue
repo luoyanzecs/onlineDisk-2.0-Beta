@@ -3,6 +3,7 @@
       <div>
         <img @click="toggle" src="../../assets/icon/xinxi.png" style="width: 2.5rem; height: 2.5rem"/>
       </div>
+
       <Card ref="card">
         <div>
           <img  @click="toggle" src="../../assets/icon/down.png"/>
@@ -20,6 +21,7 @@
         </div>
       </Card>
   </div>
+
 </template>
 
 <script>

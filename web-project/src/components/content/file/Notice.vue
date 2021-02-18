@@ -3,27 +3,32 @@
     <div>
       <img @click="sendStatus('cancel')" src="../../../assets/icon/down.png"/>
     </div>
-    <h3>check upload information</h3>
-    <div>
-      <span>UPLOAD DIR : {{selectDir}}</span>
-      <span class="other" @click="isShowBrowse = !isShowBrowse">...</span>
-    </div>
-    <div>
-      <div v-show="isShowBrowse">
-        <span>DIR LIST : </span>
-        <ul>
-          <li v-for="item in dirs" @click="selectDir = item">{{item}}</li>
-        </ul>
+
+    <div style="width: 100%; margin-top: 1rem">
+      <h3>check upload information</h3>
+      <div>
+        <span>UPLOAD DIR : {{selectDir}}</span>
+        <span class="other" @click="isShowBrowse = !isShowBrowse">...</span>
       </div>
-      <span>FILE LIST :</span>
-      <ul>
-        <li v-for="(file, index) in files" :class="{ wrong: (file.size > 100*1024*1024), correct: (file.size <= 100*1024*1024)}">
-          {{index + 1}}. {{file.name}}
-        </li>
-      </ul>
-      <span class="submit" @click="sendStatus('done')">OK</span>
-      <p>*Single file size <= 100MB.</p>
+      <div>
+        <div v-show="isShowBrowse">
+          <span>DIR LIST : </span>
+          <ul>
+            <li v-for="item in dirs" @click="selectDir = item">{{item}}</li>
+          </ul>
+        </div>
+        <span>FILE LIST :</span>
+        <ul>
+          <li v-for="(file, index) in files"
+              :class="{ wrong: (file.size > 100*1024*1024), correct: (file.size <= 100*1024*1024)}">
+            {{index + 1}}. {{file.name}}
+          </li>
+        </ul>
+        <span class="submit" @click="sendStatus('done')">OK</span>
+        <p>*Single file size <= 100MB.</p>
+      </div>
     </div>
+
   </Card>
 </template>
 
@@ -60,12 +65,10 @@
       this.getDirs();
     },
     methods: {
-      getDirs(){
-        request({
+      getDirs() {
+        request({}).then(res => {
 
-        }).then(res => {
-
-         }).catch(err => {
+        }).catch(err => {
 
         });
       },
